@@ -8,11 +8,11 @@ describe('Block', () => {
         lastBlock = Block.genesis()
         block = Block.mineBlock(lastBlock, data)
     })
-    it('sets the `data` to match the input', () => { 
+    it('sets the `data` to match the input', () => {
         expect(block.data).toEqual(data)
     })
-    
-    it('sets the `lastHash` to match the hash of the last block', () => { 
+
+    it('sets the `lastHash` to match the hash of the last block', () => {
         expect(block.lastHash).toEqual(lastBlock.hash)
     })
 
@@ -22,11 +22,11 @@ describe('Block', () => {
     })
 
     it('lowers the diffuculty for slowly mined blocks', () => {
-        expect(Block.adjustDifficulty(block, block.timestamp+360000)).toEqual(block.difficulty-1)
+        expect(Block.adjustDifficulty(block, block.timestamp + 360000)).toEqual(block.difficulty - 1)
     })
 
     it('raises the diffuculty for slowly mined blocks', () => {
-        expect(Block.adjustDifficulty(block, block.timestamp+2)).toEqual(block.difficulty+1)
+        expect(Block.adjustDifficulty(block, block.timestamp + 2)).toEqual(block.difficulty + 1)
     })
 
 })
